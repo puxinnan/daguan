@@ -131,6 +131,8 @@ function LingoFlowApp() {
           setCurrentBook={setCurrentBook}
           dailyGoal={dailyGoal}
           setDailyGoal={setDailyGoal}
+          srsProfile={srsProfile}
+          session={session}
           customDecks={customDecks}
           onViewChange={setCurrentView}
         />;
@@ -168,7 +170,16 @@ function LingoFlowApp() {
           onBack={() => setCurrentView('dashboard')}
         />;
       default:
-        return <Dashboard onViewChange={setCurrentView} />;
+        return <Dashboard 
+          currentBook={currentBook}
+          setCurrentBook={setCurrentBook}
+          dailyGoal={dailyGoal}
+          setDailyGoal={setDailyGoal}
+          srsProfile={srsProfile}
+          session={session}
+          customDecks={customDecks}
+          onViewChange={setCurrentView} 
+        />;
     }
   };
 
