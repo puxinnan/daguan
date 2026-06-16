@@ -23,15 +23,6 @@ function Home() {
     },
     {
       id: '02',
-      tag: '专属',
-      title: 'LingoFlow 英语打字强化区',
-      desc: '沉浸式英语背单词、单词闪卡、阅读训练与牌组管理平台。',
-      status: 'active',
-      btnText: '进入背词',
-      path: '/daguan/typewords/'
-    },
-    {
-      id: '03',
       tag: '待开发',
       title: '求职与实习专区',
       desc: '各行业精美简历模板、大厂面经、笔试真题库、竞品分析报告整理。',
@@ -40,7 +31,7 @@ function Home() {
       path: '/resource/3'
     },
     {
-      id: '04',
+      id: '03',
       tag: '待开发',
       title: '专升本专区',
       desc: '统招专升本（专插本）历年真题，涵盖大学英语、高数、计算机基础及核心专业课。',
@@ -49,7 +40,7 @@ function Home() {
       path: '/resource/4'
     },
     {
-      id: '05',
+      id: '04',
       tag: '待开发',
       title: '公职与事业机构招录',
       desc: '行测、申论真题库，各省市录用考试面试指南与时政热点解析。',
@@ -58,7 +49,7 @@ function Home() {
       path: '/resource/5'
     },
     {
-      id: '06',
+      id: '05',
       tag: '专属',
       title: 'TypeWords 词文记',
       desc: '单词跟打、文章跟打，沉浸式的电脑背单词与打字练习平台。',
