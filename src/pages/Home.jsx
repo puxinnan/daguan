@@ -28,7 +28,7 @@ function Home() {
       desc: '沉浸式英语背单词、单词闪卡、阅读训练与牌组管理平台。',
       status: 'active',
       btnText: '进入背词',
-      path: '/lingoflow'
+      path: '/Learning/typewords/'
     },
     {
       id: '03',
@@ -68,7 +68,7 @@ function Home() {
 
   const handleCardClick = (card) => {
     if (card.status === 'active') {
-      if (card.path.startsWith('http')) {
+      if (card.path.startsWith('http') || card.path.startsWith('/Learning/')) {
         window.location.href = card.path;
       } else {
         navigate(card.path);
