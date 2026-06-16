@@ -56,6 +56,15 @@ function Home() {
       status: 'inactive',
       btnText: '敬请期待',
       path: '/resource/5'
+    },
+    {
+      id: '06',
+      tag: '专属',
+      title: 'TypeWords 词文记',
+      desc: '单词跟打、文章跟打，沉浸式的电脑背单词与打字练习平台。',
+      status: 'active',
+      btnText: '进入练习',
+      path: '/Learning/words/'
     }
   ];
 
