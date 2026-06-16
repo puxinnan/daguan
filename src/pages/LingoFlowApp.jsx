@@ -154,10 +154,19 @@ function LingoFlowApp() {
           onBack={() => setCurrentView('dashboard')}
         />;
       case 'reading':
-      case 'guide':
+        return <ReadingViewer 
+          onBack={() => setCurrentView('dashboard')}
+          onAddWord={(w) => console.log('Add word:', w)}
+        />;
       case 'methodology':
+      case 'guide':
+        return <MethodologyGuide onBack={() => setCurrentView('dashboard')} />;
       case 'deck_manager':
-        return renderUnderConstruction();
+        return <DeckManager 
+          customDecks={customDecks}
+          setCustomDecks={setCustomDecks}
+          onBack={() => setCurrentView('dashboard')}
+        />;
       default:
         return <Dashboard onViewChange={setCurrentView} />;
     }
