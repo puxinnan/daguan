@@ -1,0 +1,98 @@
+.deck-manager {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.deck-manager-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.deck-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 40px;
+}
+
+.deck-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-radius: 12px;
+  background: var(--panel-bg);
+  border: 1px solid var(--border-color);
+}
+
+.deck-info h3 {
+  margin: 0 0 5px 0;
+  font-size: 1.2rem;
+}
+
+.deck-info p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.btn-danger {
+  background-color: transparent;
+  color: #ff7b72;
+  border: 1px solid #ff7b72;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-danger:hover {
+  background-color: #ff7b72;
+  color: white;
+}
+
+.import-section {
+  padding: 30px;
+  border-radius: 16px;
+  text-align: center;
+}
+
+.import-section input[type="file"] {
+  display: none;
+}
+
+.file-upload-label {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: opacity 0.2s;
+  margin: 20px 0;
+}
+
+.file-upload-label:hover {
+  opacity: 0.9;
+}
+
+.import-help {
+  text-align: left;
+  background: rgba(0,0,0,0.03);
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 20px;
+  font-size: 0.95rem;
+}
+
+.import-help pre {
+  background: var(--panel-bg-solid);
+  padding: 10px;
+  border-radius: 6px;
+  overflow-x: auto;
+  border: 1px solid var(--border-color);
+}

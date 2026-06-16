@@ -1,0 +1,122 @@
+.reading-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.reader-layout {
+  display: flex;
+  gap: 20px;
+  flex: 1;
+  min-height: 0;
+}
+
+.text-panel {
+  flex: 2;
+  overflow-y: auto;
+  padding: 30px;
+}
+
+.article-content {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-color);
+  white-space: pre-wrap;
+}
+
+.article-editor {
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+  background: var(--panel-bg-solid);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  color: var(--text-color);
+  padding: 15px;
+  font-family: inherit;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  resize: vertical;
+}
+
+.article-editor:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.clickable-word {
+  cursor: pointer;
+  border-bottom: 1px dashed transparent;
+  transition: all 0.2s;
+  display: inline-block;
+  padding: 0 2px;
+  border-radius: 4px;
+}
+
+.clickable-word:hover {
+  background: rgba(142, 68, 173, 0.1);
+  border-bottom: 1px dashed var(--primary-color);
+  transform: translateY(-2px);
+}
+
+.translation-panel {
+  flex: 1;
+  min-width: 300px;
+  max-width: 400px;
+  position: sticky;
+  top: 20px;
+  height: fit-content;
+  padding: 30px;
+}
+
+.translation-empty {
+  text-align: center;
+  color: var(--text-secondary);
+  padding: 40px 20px;
+}
+
+.empty-icon {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 15px;
+  animation: bounceHorizontal 2s infinite;
+}
+
+.selected-en {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 10px;
+}
+
+.translation-input {
+  width: 100%;
+  background: var(--panel-bg-solid);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  color: var(--text-color);
+  padding: 10px;
+  font-size: 1rem;
+}
+
+.translation-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+@keyframes bounceHorizontal {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(-10px); }
+}
+
+@media (max-width: 768px) {
+  .reader-layout {
+    flex-direction: column;
+  }
+  
+  .translation-panel {
+    max-width: 100%;
+    position: static;
+  }
+}
