@@ -9,11 +9,7 @@ import './App.css';
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/resource/:id" element={<ResourceDetail />} />
-      <Route path="/dashboard" element={<StudyDashboard />} />
-      <Route path="/dashboard/:subject" element={<StudyDashboard />} />
-      <Route path="/lingoflow/*" element={<LingoFlowApp />} />
+      <Route path="/*" element={<LingoFlowApp />} />
     </Routes>
   );
 }

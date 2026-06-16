@@ -169,21 +169,7 @@ function LingoFlowApp() {
   return (
     <div className="lf-app-container">
       <nav className="lf-sidebar">
-        <div 
-          onClick={() => navigate('/resource/4')} 
-          style={{
-            display: 'flex', 
-            alignItems: 'center', 
-            gap: '8px', 
-            cursor: 'pointer', 
-            marginBottom: '10px',
-            color: 'var(--text-secondary)',
-            fontSize: '0.9rem',
-            fontWeight: '500'
-          }}
-        >
-          <ArrowLeft size={16} /> 返回专区
-        </div>
+
         <h2 style={{cursor: 'default', marginTop: 0}}>LingoFlow</h2>
         <a 
           href="#" 
