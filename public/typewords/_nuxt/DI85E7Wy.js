@@ -1,1 +1,0 @@
-import{d as o,o as t,c as n,n as s,a as r}from"./BkXRmbBf.js";const p=o({__name:"ChannelIcons",props:{type:{default:"vertical"}},setup(a){return(l,e)=>(t(),n("div",{class:s(["center",a.type==="vertical"?"flex-col gap-1":"gap-4"])},[...e[0]||(e[0]=[r("div",{style:{"font-size":"14px",color:"var(--color-font-2)"}}," 反馈渠道QQ：2049893631 ",-1)])],2))}});export{p as _};
