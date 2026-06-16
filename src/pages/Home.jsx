@@ -28,7 +28,7 @@ function Home() {
       desc: '沉浸式英语背单词、单词闪卡、阅读训练与牌组管理平台。',
       status: 'active',
       btnText: '进入背词',
-      path: '/Learning/typewords/'
+      path: '/daguan/typewords/'
     },
     {
       id: '03',
@@ -64,7 +64,7 @@ function Home() {
       desc: '单词跟打、文章跟打，沉浸式的电脑背单词与打字练习平台。',
       status: 'active',
       btnText: '进入练习',
-      path: import.meta.env.DEV ? 'http://localhost:5567/words' : '/Learning/words/'
+      path: import.meta.env.DEV ? 'http://localhost:5567/words' : '/daguan/words/'
     }
   ];
 
@@ -77,7 +77,7 @@ function Home() {
 
   const handleCardClick = (card) => {
     if (card.status === 'active') {
-      if (card.path.startsWith('http') || card.path.startsWith('/Learning/')) {
+      if (card.path.startsWith('http') || card.path.startsWith('/daguan/')) {
         window.location.href = card.path;
       } else {
         navigate(card.path);
