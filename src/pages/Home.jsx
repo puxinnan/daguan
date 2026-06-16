@@ -14,11 +14,11 @@ function Home() {
   const cards = [
     {
       id: '01',
-      tag: '开放',
+      tag: '待开发',
       title: '课后习题答案/解析',
       desc: '各大高校核心基础课、专业课教材课后习题详细解答。',
-      status: 'active',
-      btnText: '进入学习',
+      status: 'inactive',
+      btnText: '敬请期待',
       path: '/resource/1'
     },
     {
@@ -41,20 +41,20 @@ function Home() {
     },
     {
       id: '04',
-      tag: '开放',
+      tag: '待开发',
       title: '专升本专区',
       desc: '统招专升本（专插本）历年真题，涵盖大学英语、高数、计算机基础及核心专业课。',
-      status: 'active',
-      btnText: '进入专区',
+      status: 'inactive',
+      btnText: '敬请期待',
       path: '/resource/4'
     },
     {
       id: '05',
-      tag: '开放',
+      tag: '待开发',
       title: '公职与事业机构招录',
       desc: '行测、申论真题库，各省市录用考试面试指南与时政热点解析。',
-      status: 'active',
-      btnText: '进入学习',
+      status: 'inactive',
+      btnText: '敬请期待',
       path: '/resource/5'
     }
   ];
