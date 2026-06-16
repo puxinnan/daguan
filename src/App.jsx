@@ -1,7 +1,6 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
-import LingoFlowApp from './pages/LingoFlowApp';
 import './App.css';
 
 const UnderConstruction = () => (
@@ -19,7 +18,6 @@ function App() {
       <Route path="/resource/:id" element={<UnderConstruction />} />
       <Route path="/dashboard" element={<UnderConstruction />} />
       <Route path="/dashboard/:subject" element={<UnderConstruction />} />
-      <Route path="/lingoflow/*" element={<LingoFlowApp />} />
     </Routes>
   );
 }

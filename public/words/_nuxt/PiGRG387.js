@@ -1,0 +1,1 @@
+import{X as s,o as t,c as a,a as c,N as o}from"./De465zC9.js";const n={},r={class:"flex justify-center"},d={class:"page 3xl:w-[50vw] 2xl:w-[60vw] xl:w-[70vw] lg:w-[75vw]"};function l(e,_){return t(),a("div",r,[c("div",d,[o(e.$slots,"default",{},void 0,!0)])])}const i=s(n,[["render",l],["__scopeId","data-v-b08919e2"]]);export{i as B};

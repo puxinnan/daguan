@@ -55,7 +55,7 @@ function Home() {
       desc: '单词跟打、文章跟打，沉浸式的电脑背单词与打字练习平台。',
       status: 'active',
       btnText: '进入练习',
-      path: import.meta.env.DEV ? 'http://localhost:5567/words' : '/daguan/words/'
+      path: '/daguan/words/words'
     }
   ];
 
