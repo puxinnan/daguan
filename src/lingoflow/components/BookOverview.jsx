@@ -1,11 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { loadDeckData } from '../utils/api';
+import { loadDeckData, fetchTranslation } from '../utils/api';
 import { ArrowLeft } from 'lucide-react';
 
 function BookOverview({ currentBook, customDecks, srsProfile, dailyGoal, session, onBack }) {
   const [bookData, setBookData] = useState([]);
   const [deckName, setDeckName] = useState('');
   const [isLoading, setIsLoading] = useState(true);
+  const [fetchedTranslations, setFetchedTranslations] = useState({});
+
+  const handleFetchTranslation = async (index, word) => {
+    setFetchedTranslations(prev => ({ ...prev, [index]: { loading: true, text: '' } }));
+    const translation = await fetchTranslation(word);
+    setFetchedTranslations(prev => ({ ...prev, [index]: { loading: false, text: translation } }));
+  };
 
   useEffect(() => {
     let isMounted = true;
@@ -90,14 +97,29 @@ function BookOverview({ currentBook, customDecks, srsProfile, dailyGoal, session
                   }
 
                   // 处理多重释义的换行展示
-                  const meanings = card.chinese ? card.chinese.split('；') : ['背记翻卡时自动拉取多重释义'];
+                  const fetchedData = fetchedTranslations[index];
+                  const hasTranslation = card.chinese || (fetchedData && fetchedData.text);
+                  const displayChinese = card.chinese || (fetchedData ? fetchedData.text : '');
+                  // Replace carriage returns and split by newlines, or split by semicolon as fallback
+                  const meanings = displayChinese ? displayChinese.replace(/\r/g, '').split('\n').filter(m => m.trim() !== '') : [];
 
                   return (
                     <tr key={index} style={{ borderBottom: '1px solid var(--border-color)' }}>
                       <td style={{ padding: '10px 15px', color: 'var(--text-secondary)' }}>{index + 1}</td>
                       <td style={{ padding: '10px 15px', fontWeight: 'bold' }}>{card.english || card.front}</td>
                       <td style={{ padding: '10px 15px', color: 'var(--text-secondary)', fontSize: '0.9rem' }}>
-                        {meanings.map((m, i) => <div key={i}>{m}</div>)}
+                        {hasTranslation ? (
+                          meanings.map((m, i) => <div key={i}>{m}</div>)
+                        ) : fetchedData?.loading ? (
+                          <span style={{ color: 'var(--primary-color)' }}>正在获取...</span>
+                        ) : (
+                          <button 
+                            onClick={() => handleFetchTranslation(index, card.english || card.front)}
+                            style={{ padding: '4px 8px', fontSize: '0.8rem', background: 'transparent', border: '1px solid var(--border-color)', borderRadius: '4px', cursor: 'pointer', color: 'var(--text-primary)' }}
+                          >
+                            🔍 查看释义
+                          </button>
+                        )}
                       </td>
                       <td style={{ padding: '10px 15px' }}>
                         <span style={{ 

@@ -3,8 +3,9 @@ import './Flashcards.css';
 import { RATING, createInitialCardState, previewInterval } from '../utils/srs';
 import { fetchPublicVocab, fetchTranslation } from '../utils/api';
 import { loadDeckData } from '../utils/api';
+import { ArrowLeft } from 'lucide-react';
 
-function Flashcards({ currentBook, dailyGoal, srsProfile, session, customDecks, onRateCard, onBack }) {
+function Flashcards({ currentBook, setCurrentBook, dailyGoal, srsProfile, session, customDecks, onRateCard, onBack }) {
   const [isFlipped, setIsFlipped] = useState(false);
   const [currentWordState, setCurrentWordState] = useState(null);
   const [isComplete, setIsComplete] = useState(false);
@@ -168,13 +169,42 @@ function Flashcards({ currentBook, dailyGoal, srsProfile, session, customDecks, 
   if (isComplete) {
     return (
       <div className="flashcards-container animate-fade-in" style={{ justifyContent: 'center', height: '100%' }}>
-        <div className="glass-panel" style={{ textAlign: 'center', padding: '50px' }}>
+        <div style={{ width: '100%', maxWidth: '600px', margin: '0 auto 20px auto', display: 'flex', justifyContent: 'flex-start', position: 'absolute', top: '20px', left: '20px' }}>
+          <button onClick={onBack} className="btn-secondary" style={{ display: 'flex', alignItems: 'center', gap: '8px', border: 'none', background: 'transparent', cursor: 'pointer', color: 'var(--text-secondary)' }}>
+            <ArrowLeft size={18} /> 退回主页
+          </button>
+        </div>
+        <div className="glass-panel" style={{ textAlign: 'center', padding: '50px', maxWidth: '500px', margin: '0 auto' }}>
           <h1 style={{ fontSize: '4rem', marginBottom: '20px' }}>🎉</h1>
           <h2>复习完成！</h2>
           <p style={{ color: 'var(--text-secondary)', margin: '20px 0' }}>
-            你已完成今天的复习并学习了 {session.newCardsToday} 个新单词。非常棒！
+            你已完成《{deckName}》今天的复习，并学习了 {session.newCardsToday} 个新单词。非常棒！
           </p>
-          <button className="lf-btn-primary" onClick={onBack}>返回控制面板</button>
+          <div style={{ margin: '30px 0', textAlign: 'left', background: 'var(--bg-color)', padding: '20px', borderRadius: '12px' }}>
+            <p style={{ marginBottom: '10px', fontSize: '0.95rem', color: 'var(--text-primary)' }}>如果今天状态不错，你可以选择继续学习另一本书：</p>
+            <select 
+              value={currentBook} 
+              onChange={(e) => setCurrentBook(e.target.value)} 
+              style={{ width: '100%', padding: '10px 12px', borderRadius: '6px', background: 'var(--panel-bg-solid)', color: 'var(--text-primary)', border: '1px solid var(--border-color)', outline: 'none' }}
+            >
+              <optgroup label="内置牌组">
+                <option value="college_upgrade">专升本核心词汇</option>
+                <option value="cet4">大学英语四级 (CET4)</option>
+                <option value="cet6">大学英语六级 (CET6)</option>
+                <option value="kaoyan">考研英语大纲词汇</option>
+                <option value="ielts">雅思核心词汇 (IELTS)</option>
+                <option value="toefl">托福核心词汇 (TOEFL)</option>
+              </optgroup>
+              {customDecks && Object.keys(customDecks).length > 0 && (
+                <optgroup label="自定义牌组">
+                  {Object.values(customDecks).map(deck => (
+                    <option key={deck.id} value={deck.id}>{deck.name}</option>
+                  ))}
+                </optgroup>
+              )}
+            </select>
+          </div>
+          <button className="lf-btn-primary" onClick={onBack} style={{ width: '100%' }}>返回控制面板</button>
         </div>
       </div>
     );
@@ -193,6 +223,11 @@ function Flashcards({ currentBook, dailyGoal, srsProfile, session, customDecks, 
 
   return (
     <div className="flashcards-container animate-fade-in">
+      <div style={{ width: '100%', maxWidth: '600px', margin: '0 auto 20px auto', display: 'flex', justifyContent: 'flex-start' }}>
+        <button onClick={onBack} className="btn-secondary" style={{ display: 'flex', alignItems: 'center', gap: '8px', border: 'none', background: 'transparent', cursor: 'pointer', color: 'var(--text-secondary)' }}>
+          <ArrowLeft size={18} /> 退回主页
+        </button>
+      </div>
       <h2>单词复习 ({deckName})</h2>
       <div className="stats-header subtitle">
         <span style={{ color: 'var(--primary-color)' }}>新词：{Math.max(0, dailyGoal - session.newCardsToday)}</span> | 

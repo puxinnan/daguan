@@ -24,11 +24,11 @@ function Home() {
     {
       id: '02',
       tag: '专属',
-      title: 'LingoFlow 英语强化区',
+      title: 'LingoFlow 英语打字强化区',
       desc: '沉浸式英语背单词、单词闪卡、阅读训练与牌组管理平台。',
       status: 'active',
       btnText: '进入背词',
-      path: '/lingoflow'
+      path: window.location.origin + '/Learning/typewords/'
     },
     {
       id: '03',
@@ -68,7 +68,11 @@ function Home() {
 
   const handleCardClick = (card) => {
     if (card.status === 'active') {
-      navigate(card.path);
+      if (card.path.startsWith('http')) {
+        window.location.href = card.path;
+      } else {
+        navigate(card.path);
+      }
     }
   };
 

@@ -33,8 +33,11 @@ function Dashboard({ onViewChange, currentBook, setCurrentBook, dailyGoal, setDa
 
   // Render current deck name
   const renderDeckName = () => {
-    if (currentBook === 'ielts') return '雅思核心词汇';
-    if (currentBook === 'toefl') return '托福核心词汇';
+    if (currentBook === 'cet4') return '大学英语四级 (CET4)';
+    if (currentBook === 'cet6') return '大学英语六级 (CET6)';
+    if (currentBook === 'kaoyan') return '考研英语大纲词汇';
+    if (currentBook === 'ielts') return '雅思核心词汇 (IELTS)';
+    if (currentBook === 'toefl') return '托福核心词汇 (TOEFL)';
     if (currentBook === 'college_upgrade') return '专升本核心词汇';
     if (customDecks && customDecks[currentBook]) return customDecks[currentBook].name;
     return '未知牌组';
@@ -112,9 +115,12 @@ function Dashboard({ onViewChange, currentBook, setCurrentBook, dailyGoal, setDa
               <div style={{ display: 'flex', gap: '10px' }}>
                 <select value={currentBook} onChange={handleBookChange} style={{ flex: 1, padding: '10px 12px', borderRadius: '6px', background: 'var(--panel-bg-solid)', color: 'var(--text-primary)', border: '1px solid var(--border-color)' }}>
                   <optgroup label="内置牌组">
-                    <option value="ielts">雅思核心词汇</option>
-                    <option value="toefl">托福核心词汇</option>
                     <option value="college_upgrade">专升本核心词汇</option>
+                    <option value="cet4">大学英语四级 (CET4)</option>
+                    <option value="cet6">大学英语六级 (CET6)</option>
+                    <option value="kaoyan">考研英语大纲词汇</option>
+                    <option value="ielts">雅思核心词汇 (IELTS)</option>
+                    <option value="toefl">托福核心词汇 (TOEFL)</option>
                   </optgroup>
                   {customDecks && Object.keys(customDecks).length > 0 && (
                     <optgroup label="自定义牌组">

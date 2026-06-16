@@ -54,12 +54,36 @@ export const fetchTranslation = async (text) => {
 
 
 export const loadDeckData = async (currentBook, customDecks) => {
-  if (currentBook === 'ielts') {
-    return { cards: await fetchPublicVocab(500, 0), name: '雅思核心词汇 (公共API接入)' };
-  } else if (currentBook === 'toefl') {
-    return { cards: await fetchPublicVocab(500, 500), name: '托福核心词汇 (公共API接入)' };
-  } else if (currentBook === 'college_upgrade') {
-    return { cards: collegeUpgradeWords, name: '专升本核心词汇 (内置词库+国内API)' };
+  const builtInDecks = {
+    cet4: { url: `${import.meta.env.BASE_URL}decks/cet4.json`, name: '大学英语四级 (CET4)' },
+    cet6: { url: `${import.meta.env.BASE_URL}decks/cet6.json`, name: '大学英语六级 (CET6)' },
+    kaoyan: { url: `${import.meta.env.BASE_URL}decks/kaoyan.json`, name: '考研英语大纲词汇' },
+    ielts: { url: `${import.meta.env.BASE_URL}decks/ielts.json`, name: '雅思核心词汇 (IELTS)' },
+    toefl: { url: `${import.meta.env.BASE_URL}decks/toefl.json`, name: '托福核心词汇 (TOEFL)' },
+    college_upgrade: { url: `${import.meta.env.BASE_URL}decks/college_upgrade.json`, name: '专升本核心词汇' },
+  };
+
+  if (builtInDecks[currentBook]) {
+    try {
+      const res = await fetch(builtInDecks[currentBook].url);
+      const words = await res.json();
+      const cards = words.map((item, index) => {
+        // Handle both string arrays and object arrays
+        const englishWord = typeof item === 'string' ? item : item.english;
+        const chineseTranslation = typeof item === 'string' ? '' : item.chinese;
+        
+        return {
+          id: `${currentBook}_${index}`,
+          english: englishWord,
+          chinese: chineseTranslation,
+          example: ''
+        };
+      });
+      return { cards, name: builtInDecks[currentBook].name };
+    } catch (e) {
+      console.error(`Failed to load deck ${currentBook}`, e);
+      return { cards: [], name: '牌组加载失败' };
+    }
   } else if (customDecks && customDecks[currentBook]) {
     return { cards: customDecks[currentBook].cards, name: customDecks[currentBook].name };
   }

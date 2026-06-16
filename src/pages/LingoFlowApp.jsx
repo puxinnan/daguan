@@ -6,6 +6,7 @@ import ReadingViewer from '../lingoflow/components/ReadingViewer'
 import MethodologyGuide from '../lingoflow/components/MethodologyGuide'
 import DeckManager from '../lingoflow/components/DeckManager'
 import BookOverview from '../lingoflow/components/BookOverview'
+import DictionaryTool from '../lingoflow/components/DictionaryTool'
 import { calculateNextReview } from '../lingoflow/utils/srs'
 import '../lingoflow/lingoflow.css'
 import '../lingoflow/App.css'
@@ -139,6 +140,7 @@ function LingoFlowApp() {
       case 'flashcards':
         return <Flashcards 
           currentBook={currentBook}
+          setCurrentBook={setCurrentBook}
           dailyGoal={dailyGoal}
           srsProfile={srsProfile}
           session={session}
@@ -160,6 +162,8 @@ function LingoFlowApp() {
           onBack={() => setCurrentView('dashboard')}
           onAddWord={(w) => console.log('Add word:', w)}
         />;
+      case 'dictionary':
+        return <DictionaryTool onBack={() => setCurrentView('dashboard')} />;
       case 'methodology':
       case 'guide':
         return <MethodologyGuide onBack={() => setCurrentView('dashboard')} />;
@@ -186,8 +190,11 @@ function LingoFlowApp() {
   return (
     <div className="lf-app-container">
       <nav className="lf-sidebar">
-
-        <h2 style={{cursor: 'default', marginTop: 0}}>LingoFlow</h2>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '20px', cursor: 'pointer', color: 'var(--text-secondary)' }} onClick={() => navigate('/')}>
+          <ArrowLeft size={20} />
+          <span style={{ fontSize: '0.9rem', fontWeight: 'bold' }}>返回大观园</span>
+        </div>
+        <h2 style={{cursor: 'default', marginTop: 0}}>英语专区</h2>
         <a 
           href="#" 
           className={`nav-item ${currentView === 'guide' ? 'active' : ''}`}
@@ -215,6 +222,13 @@ function LingoFlowApp() {
           onClick={(e) => { e.preventDefault(); setCurrentView('deck_manager'); }}
         >
           牌组管理
+        </a>
+        <a 
+          href="#" 
+          className={`nav-item ${currentView === 'dictionary' ? 'active' : ''}`}
+          onClick={(e) => { e.preventDefault(); setCurrentView('dictionary'); }}
+        >
+          极速查词
         </a>
         <a 
           href="#" 
