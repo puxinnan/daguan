@@ -116,18 +116,23 @@ function LingoFlowApp() {
     });
   };
 
+  const renderUnderConstruction = () => (
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%', minHeight: '400px', flexDirection: 'column', color: 'var(--text-primary)' }}>
+      <h2 style={{ fontSize: '2rem', marginBottom: '15px' }}>🚧 待开发中...</h2>
+      <p style={{ color: 'var(--text-secondary)' }}>此功能模块正在施工中，敬请期待！</p>
+    </div>
+  );
+
   const renderCurrentView = () => {
     switch (currentView) {
       case 'dashboard':
         return <Dashboard 
-          onViewChange={setCurrentView}
           currentBook={currentBook}
           setCurrentBook={setCurrentBook}
           dailyGoal={dailyGoal}
           setDailyGoal={setDailyGoal}
-          srsProfile={srsProfile}
-          session={session}
           customDecks={customDecks}
+          onViewChange={setCurrentView}
         />;
       case 'flashcards':
         return <Flashcards 
@@ -139,19 +144,6 @@ function LingoFlowApp() {
           onRateCard={handleRateCard}
           onBack={() => setCurrentView('dashboard')}
         />;
-      case 'reading':
-        return <ReadingViewer 
-          onBack={() => setCurrentView('dashboard')}
-          onAddWord={(w) => console.log('Add word:', w)}
-        />;
-      case 'methodology':
-        return <MethodologyGuide onBack={() => setCurrentView('dashboard')} />;
-      case 'deck_manager':
-        return <DeckManager 
-          customDecks={customDecks}
-          setCustomDecks={setCustomDecks}
-          onBack={() => setCurrentView('dashboard')}
-        />;
       case 'book_overview':
         return <BookOverview
           currentBook={currentBook}
@@ -161,6 +153,11 @@ function LingoFlowApp() {
           session={session}
           onBack={() => setCurrentView('dashboard')}
         />;
+      case 'reading':
+      case 'guide':
+      case 'methodology':
+      case 'deck_manager':
+        return renderUnderConstruction();
       default:
         return <Dashboard onViewChange={setCurrentView} />;
     }
