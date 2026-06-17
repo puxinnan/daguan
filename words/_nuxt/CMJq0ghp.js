@@ -1,1 +1,0 @@
-import{d as s,o as a,c as n,F as o,a as e,t as l,u as r,A as c}from"./5Z7qJBk0.js";const u=s({__name:"About",setup(p){return(i,t)=>(a(),n(o,null,[e("h1",null,l(r(c)),1),t[0]||(t[0]=e("div",{class:"w-120 text-center"},[e("div",{class:"flex flex-col gap-2 mt-20"},[e("div",{class:"text-xl font-bold"}," 反馈渠道：QQ 2049893631 ")])],-1))],64))}});export{u as _};
