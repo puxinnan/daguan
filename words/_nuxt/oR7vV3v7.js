@@ -1,0 +1,1 @@
+import{d as s,ak as c,o as r,i as _,w as i,f as u,ab as l,W as p}from"./Dmf7GVTS.js";import{B as f}from"./DMPpNcOk.js";const C=s({__name:"BackIcon",setup(m){const t=c(),o=p();function e(){t.onClick||o.back()}return(n,k)=>{const a=l;return r(),_(f,{title:n.$t("back"),onClick:e},{default:i(()=>[u(a)]),_:1},8,["title"])}}});export{C as _};

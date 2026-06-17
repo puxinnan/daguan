@@ -1,0 +1,137 @@
+[
+  {
+    "word": "abandon",
+    "phonetic0": "əˈbændən",
+    "phonetic1": "əˈbændən",
+    "trans": [
+      {
+        "pos": "v.",
+        "cn": "放弃，抛弃",
+        "frequency": 2
+      },
+      {
+        "pos": "n.",
+        "cn": "放纵，沉溺",
+        "frequency": 0
+      }
+    ],
+    "sentences": [
+      {
+        "c": "He had to abandon his plan.",
+        "cn": "他不得不放弃他的计划。"
+      }
+    ],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "word": "absolute",
+    "phonetic0": "ˈæbsəluːt",
+    "phonetic1": "ˈæbsəluːt",
+    "trans": [
+      {
+        "pos": "adj.",
+        "cn": "绝对的，完全的",
+        "frequency": 2
+      },
+      {
+        "pos": "n.",
+        "cn": "绝对事物",
+        "frequency": 1
+      }
+    ],
+    "sentences": [
+      {
+        "c": "I have absolute confidence in her.",
+        "cn": "我对她有绝对的信心。"
+      }
+    ],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "word": "academic",
+    "phonetic0": "ˌækəˈdemɪk",
+    "phonetic1": "ˌækəˈdemɪk",
+    "trans": [
+      {
+        "pos": "adj.",
+        "cn": "学术的；学院的",
+        "frequency": 2
+      },
+      {
+        "pos": "n.",
+        "cn": "学者",
+        "frequency": 1
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "word": "access",
+    "phonetic0": "ˈækses",
+    "phonetic1": "ˈækses",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "通道；接触的机会",
+        "frequency": 2
+      },
+      {
+        "pos": "v.",
+        "cn": "接近；访问",
+        "frequency": 2
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "word": "accommodate",
+    "phonetic0": "əˈkɒmədeɪt",
+    "phonetic1": "əˈkɑːmədeɪt",
+    "trans": [
+      {
+        "pos": "v.",
+        "cn": "容纳；为...提供住宿",
+        "frequency": 2
+      },
+      {
+        "pos": "v.",
+        "cn": "适应，迎合",
+        "frequency": 1
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  }
+]
