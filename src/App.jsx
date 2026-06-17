@@ -11,11 +11,31 @@ const UnderConstruction = () => (
   </div>
 );
 
+import { useParams } from 'react-router-dom';
+
+const ResourceRouter = () => {
+  const { id } = useParams();
+  
+  if (id === '5') {
+    return (
+      <div style={{ width: '100vw', height: '100vh', overflow: 'hidden' }}>
+        <iframe 
+          src="/daguan/words/" 
+          style={{ width: '100%', height: '100vh', border: 'none' }} 
+          title="TypeWords"
+        />
+      </div>
+    );
+  }
+  
+  return <UnderConstruction />;
+};
+
 function App() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/resource/:id" element={<UnderConstruction />} />
+      <Route path="/resource/:id" element={<ResourceRouter />} />
       <Route path="/dashboard" element={<UnderConstruction />} />
       <Route path="/dashboard/:subject" element={<UnderConstruction />} />
     </Routes>
